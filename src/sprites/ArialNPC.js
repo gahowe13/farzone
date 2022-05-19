@@ -305,13 +305,21 @@ class ArialNPC extends Container {
 
   applyHueRotation() {
     // Apply hue rotate
-    const hueRotatePipeline = this.scene.renderer.pipelines.get('HueRotate');
+    // const hueRotatePipeline = this.scene.renderer.pipelines.get('HueRotate');
+    // this.list.forEach((obj) => {
+    //   if (obj.getData('isHitbox') !== true) {
+    //     obj.setPipeline(hueRotatePipeline);
+    //   }
+    // });
+    // hueRotatePipeline.time = 180.25; // magic numbers ftw
+  }
+
+  initLighting() {
     this.list.forEach((obj) => {
       if (obj.getData('isHitbox') !== true) {
-        obj.setPipeline(hueRotatePipeline);
+        obj.setPipeline('Light2D');
       }
     });
-    hueRotatePipeline.time = 180.25; // magic numbers ftw
   }
 
   processGround() {

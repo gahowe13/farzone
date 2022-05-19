@@ -14,18 +14,20 @@ class Roboto extends Character {
     this.jumpAnimBuffer = 50;
     this.jumpAnimLock = false;
     this.isDead = false;
+    this.animPrefix = "r";
+    this.isFlipped = false;
 
     this.core = this.scene.physics.add.sprite(0, 0, "mech1");
-    this.core.play("mech1-idle");
+    this.core.play("r-mech1-idle");
     this.core.body.setAllowGravity(false);
 
     this.armLeft = this.scene.physics.add.sprite(-20, -148, "mech1-arm-left");
-    this.armLeft.play("mech1-arm-left-idle");
+    this.armLeft.play("r-mech1-arm-left-idle");
     this.armLeft.setOrigin(0.19, 0.29);
     this.armLeft.body.setAllowGravity(false);
 
     this.armRight = this.scene.physics.add.sprite(-20, -148, "mech1-arm-right");
-    this.armRight.play("mech1-arm-right-idle");
+    this.armRight.play("r-mech1-arm-right-idle");
     this.armRight.setOrigin(0.21, 0.28);
     this.armRight.body.setAllowGravity(false);
 
@@ -57,6 +59,9 @@ class Roboto extends Character {
       right: Phaser.Input.Keyboard.KeyCodes.D,
     });
 
+    // Muzzle flare lighting
+    this.muzzleFlare = this.scene.lights.addLight(0, 0, 500, 0xffff00, 0);
+
     // Let the shoosting begin
     this.rapidfire = this.scene.time.addEvent({
       delay: 75,
@@ -68,7 +73,7 @@ class Roboto extends Character {
         const vector = new pMath.Vector2();
         let angleMod = 2 * Math.PI;
 
-        if (this.core.flipX) {
+        if (this.isFlipped) {
           angleMod = Math.PI;
         }
 
@@ -79,6 +84,11 @@ class Roboto extends Character {
           this.y + this.armLeft.y + vector.y - barrelOffsetY
         );
         this.bulletRay.setAngle(this.armLeft.rotation + angleMod);
+
+        this.muzzleFlare.setPosition(
+          this.x + this.armLeft.x + vector.x,
+          this.y + this.armLeft.y + vector.y - barrelOffsetY
+        );
 
         const intersection = this.bulletRay.cast();
         let endX = vector.x * 300;
@@ -134,18 +144,23 @@ class Roboto extends Character {
           endY
         );
 
-        network.send("roboto-shoot", {
-          sx: this.x + this.armLeft.x + vector.x,
-          sy: this.y + this.armLeft.y + vector.y - barrelOffsetY,
-          ex: endX,
-          ey: endY,
-        });
+        if (this.scene.registry.isMultiplayer) {
+          network.send("roboto-shoot", {
+            sx: this.x + this.armLeft.x + vector.x,
+            sy: this.y + this.armLeft.y + vector.y - barrelOffsetY,
+            ex: endX,
+            ey: endY,
+          });
+        }
+
+        this.muzzleFlare.setIntensity(2.5);
 
         this.scene.time.addEvent({
           delay: 100,
           repeat: 0,
           callback: () => {
             this.bulletGfx.clear();
+            this.muzzleFlare.setIntensity(0);
           },
         });
 
@@ -162,7 +177,7 @@ class Roboto extends Character {
             const vector = new pMath.Vector2();
             let angleMod = 2 * Math.PI;
 
-            if (this.core.flipX) {
+            if (this.isFlipped) {
               angleMod = Math.PI;
             }
 
@@ -173,12 +188,18 @@ class Roboto extends Character {
               this.x + vector.x,
               this.y + vector.y - barrelOffsetY,
               this.armLeft.rotation,
-              this.core.flipX,
+              this.isFlipped,
               true
             );
 
-            this.armLeft.play("mech1-arm-left-heavy-shot", true);
-            this.armRight.play("mech1-arm-right-heavy-shot", true);
+            this.armLeft.play(
+              `${this.animPrefix}-mech1-arm-left-heavy-shot`,
+              true
+            );
+            this.armRight.play(
+              `${this.animPrefix}-mech1-arm-right-heavy-shot`,
+              true
+            );
             this.scene.sound.play("sfx-rocket");
 
             this.scene.registry.playerRockets--;
@@ -195,8 +216,14 @@ class Roboto extends Character {
           }
         } else {
           this.rapidfire.paused = false;
-          this.armLeft.play("mech1-arm-left-light-shot", true);
-          this.armRight.play("mech1-arm-right-light-shot", true);
+          this.armLeft.play(
+            `${this.animPrefix}-mech1-arm-left-light-shot`,
+            true
+          );
+          this.armRight.play(
+            `${this.animPrefix}-mech1-arm-right-light-shot`,
+            true
+          );
         }
       }
     });
@@ -204,8 +231,8 @@ class Roboto extends Character {
     this.scene.input.on("pointerup", () => {
       if (!this.isDead) {
         this.rapidfire.paused = true;
-        this.armLeft.play("mech1-arm-left-idle", true);
-        this.armRight.play("mech1-arm-right-idle", true);
+        this.armLeft.play(`${this.animPrefix}-mech1-arm-left-idle`, true);
+        this.armRight.play(`${this.animPrefix}-mech1-arm-right-idle`, true);
       }
     });
 
@@ -246,13 +273,35 @@ class Roboto extends Character {
 
   applyHueRotation() {
     // Apply hue rotate
-    const hueRotatePipeline = this.scene.renderer.pipelines.get("HueRotate");
+    // const hueRotatePipeline = this.scene.renderer.pipelines.get('HueRotate');
+    // this.list.forEach((obj) => {
+    //   if (obj.getData('isHitbox') !== true) {
+    //     obj.setPipeline(hueRotatePipeline);
+    //   }
+    // });
+    // hueRotatePipeline.time = 180.25; // magic numbers ftw
+  }
+
+  initLighting() {
     this.list.forEach((obj) => {
       if (obj.getData("isHitbox") !== true) {
-        obj.setPipeline(hueRotatePipeline);
+        obj.setPipeline("Light2D");
       }
     });
-    hueRotatePipeline.time = 180.25; // magic numbers ftw
+  }
+
+  setFlipX(flip) {
+    this.isFlipped = flip;
+
+    if (flip) {
+      this.animPrefix = "l";
+    } else {
+      this.animPrefix = "r";
+    }
+
+    this.head.setTexture(`${this.animPrefix}-mech1-head`);
+    this.armLeft.play(`${this.animPrefix}-mech1-arm-left-idle`);
+    this.armRight.play(`${this.animPrefix}-mech1-arm-right-idle`);
   }
 
   takeDamage(dmg, intersection, isNetworkControlled = false) {
@@ -260,14 +309,19 @@ class Roboto extends Character {
 
     if (!this.isDead) {
       const { isMultiplayerHost: isPlayer1 } = this.scene.registry;
+      const { isMultiplayer } = this.scene.registry;
 
       if (
+        !isMultiplayer ||
         (isPlayer1 && this.scene.registry.playerHP > 0) ||
         (!isPlayer1 && this.scene.registry.enemyHP > 0)
       ) {
-        const maxHP = isPlayer1
-          ? this.scene.registry.playerHP
-          : this.scene.registry.enemyHP;
+        // let maxHP = (isPlayer1 ? this.scene.registry.playerHP : this.scene.registry.enemyHP);
+        let maxHP = this.scene.registry.playerHP;
+
+        if (isMultiplayer && !isPlayer1) {
+          maxHP = this.scene.registry.enemyHP;
+        }
 
         const txtX = intersection.x + pMath.Between(-200, 200);
         const txtY = intersection.y + pMath.Between(-200, 200);
@@ -292,12 +346,22 @@ class Roboto extends Character {
         });
       }
 
-      if (isPlayer1 && this.scene.registry.playerHP - dmg > 0) {
+      if (!isMultiplayer && this.scene.registry.playerHP - dmg > 0) {
         this.scene.registry.playerHP -= dmg;
-      } else if (!isPlayer1 && this.scene.registry.enemyHP - dmg > 0) {
+      } else if (
+        isMultiplayer &&
+        isPlayer1 &&
+        this.scene.registry.playerHP - dmg > 0
+      ) {
+        this.scene.registry.playerHP -= dmg;
+      } else if (
+        isMultiplayer &&
+        !isPlayer1 &&
+        this.scene.registry.enemyHP - dmg > 0
+      ) {
         this.scene.registry.enemyHP -= dmg;
       } else {
-        if (isPlayer1) {
+        if (isPlayer1 || !isMultiplayer) {
           this.scene.registry.playerHP = 0;
         } else {
           this.scene.registry.enemyHP = 0;
@@ -311,7 +375,7 @@ class Roboto extends Character {
 
         const maxDeathBurst = 500;
 
-        this.scene.cameras.main.flash(1000, 255, 255, 255, true);
+        // this.scene.cameras.main.flash(1000, 255, 255, 255, true);
         this.scene.cameras.main.shake(1000);
         this.scene.cameras.main.stopFollow();
         this.scene.cameras.main.pan(this.x, this.y, 2000, "Linear", true);
@@ -416,10 +480,7 @@ class Roboto extends Character {
       let headAngleMod = 0.35;
 
       if (mousePointer.x <= relX) {
-        this.core.setFlipX(true);
-        this.armLeft.setFlipX(true);
-        this.armRight.setFlipX(true);
-        this.head.setFlipX(true);
+        this.setFlipX(true);
         this.armLeft.setOrigin(1 - 0.19, 0.29);
         this.armRight.setOrigin(1 - 0.21, 0.28);
         this.armLeft.setX(20);
@@ -428,10 +489,7 @@ class Roboto extends Character {
         angleMod = Math.PI;
         headAngleMod = 0.35;
       } else {
-        this.core.setFlipX(false);
-        this.armLeft.setFlipX(false);
-        this.armRight.setFlipX(false);
-        this.head.setFlipX(false);
+        this.setFlipX(false);
         this.armLeft.setOrigin(0.19, 0.29);
         this.armRight.setOrigin(0.21, 0.28);
         this.armLeft.setX(-20);
@@ -450,23 +508,23 @@ class Roboto extends Character {
 
         if (this.body.velocity.x !== 0) {
           if (
-            (this.core.flipX && this.body.velocity.x > 0) ||
-            (!this.core.flipX && this.body.velocity.x < 0)
+            (this.isFlipped && this.body.velocity.x > 0) ||
+            (!this.isFlipped && this.body.velocity.x < 0)
           ) {
-            this.core.playReverse("mech1-run", true);
+            this.core.playReverse(`${this.animPrefix}-mech1-run`, true);
           } else {
-            this.core.play("mech1-run", true);
+            this.core.play(`${this.animPrefix}-mech1-run`, true);
           }
         } else {
-          this.core.play("mech1-idle", true);
+          this.core.play(`${this.animPrefix}-mech1-idle`, true);
         }
       } else {
         if (this.body.velocity.y < -this.jumpAnimBuffer) {
-          this.core.play("mech1-up", true);
+          this.core.play(`${this.animPrefix}-mech1-up`, true);
         } else if (this.body.velocity.y > this.jumpAnimBuffer) {
-          this.core.play("mech1-down", true);
+          this.core.play(`${this.animPrefix}-mech1-down`, true);
         } else if (!this.jumpAnimLock) {
-          this.core.play("mech1-up-down", true);
+          this.core.play(`${this.animPrefix}-mech1-up-down`, true);
           this.jumpAnimLock = true;
         }
       }

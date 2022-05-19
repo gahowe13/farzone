@@ -70,13 +70,21 @@ class RobotoPeer extends Container {
 
   applyHueRotation() {
     // Apply hue rotate
-    const hueRotatePipeline = this.scene.renderer.pipelines.get('HueRotate');
+    // const hueRotatePipeline = this.scene.renderer.pipelines.get('HueRotate');
+    // this.list.forEach((obj) => {
+    //   if (obj.getData('isHitbox') !== true) {
+    //     obj.setPipeline(hueRotatePipeline);
+    //   }
+    // });
+    // hueRotatePipeline.time = 180.25; // magic numbers ftw
+  }
+
+  initLighting() {
     this.list.forEach((obj) => {
       if (obj.getData('isHitbox') !== true) {
-        obj.setPipeline(hueRotatePipeline);
+        obj.setPipeline('Light2D');
       }
     });
-    hueRotatePipeline.time = 180.25; // magic numbers ftw
   }
 
   takeDamage(dmg, intersection, isNetworkControlled = false) {
@@ -145,7 +153,7 @@ class RobotoPeer extends Container {
   
         const maxDeathBurst = 500;
 
-        this.scene.cameras.main.flash(1000, 255, 255, 255, true);
+        // this.scene.cameras.main.flash(1000, 255, 255, 255, true);
         this.scene.cameras.main.shake(1000);
         this.scene.cameras.main.stopFollow();
         this.scene.cameras.main.pan(this.x, this.y, 2000, 'Linear', true);

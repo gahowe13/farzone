@@ -2,15 +2,16 @@
 	"textures": [
 		{
 			"image": "mech1-right-arm.png",
+			"normalMap": "mech1-right-arm_n.png",
 			"format": "RGBA8888",
 			"size": {
-				"w": 1987,
-				"h": 274
+				"w": 2027,
+				"h": 547
 			},
 			"scale": 1,
 			"frames": [
 				{
-					"filename": "idle.png",
+					"filename": "Right Arm - Heavy Shot/l-r-heavy-10.png",
 					"rotated": false,
 					"trimmed": true,
 					"sourceSize": {
@@ -18,20 +19,125 @@
 						"h": 146
 					},
 					"spriteSourceSize": {
-						"x": 7,
+						"x": 36,
 						"y": 4,
-						"w": 192,
-						"h": 127
+						"w": 155,
+						"h": 137
 					},
 					"frame": {
 						"x": 1,
 						"y": 1,
+						"w": 155,
+						"h": 137
+					}
+				},
+				{
+					"filename": "Right Arm - Heavy Shot/l-r-heavy-14.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 200,
+						"h": 146
+					},
+					"spriteSourceSize": {
+						"x": 36,
+						"y": 4,
+						"w": 155,
+						"h": 137
+					},
+					"frame": {
+						"x": 1,
+						"y": 1,
+						"w": 155,
+						"h": 137
+					}
+				},
+				{
+					"filename": "Right Arm - Heavy Shot/r-r-heavy-10.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 200,
+						"h": 146
+					},
+					"spriteSourceSize": {
+						"x": 9,
+						"y": 4,
+						"w": 155,
+						"h": 137
+					},
+					"frame": {
+						"x": 1,
+						"y": 140,
+						"w": 155,
+						"h": 137
+					}
+				},
+				{
+					"filename": "Right Arm - Heavy Shot/r-r-heavy-14.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 200,
+						"h": 146
+					},
+					"spriteSourceSize": {
+						"x": 9,
+						"y": 4,
+						"w": 155,
+						"h": 137
+					},
+					"frame": {
+						"x": 1,
+						"y": 140,
+						"w": 155,
+						"h": 137
+					}
+				},
+				{
+					"filename": "Right Arm - Heavy Shot/l-r-heavy-12.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 200,
+						"h": 146
+					},
+					"spriteSourceSize": {
+						"x": 42,
+						"y": 5,
+						"w": 149,
+						"h": 137
+					},
+					"frame": {
+						"x": 1,
+						"y": 279,
+						"w": 149,
+						"h": 137
+					}
+				},
+				{
+					"filename": "Right Arm - Idle/l-r-idle.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 200,
+						"h": 146
+					},
+					"spriteSourceSize": {
+						"x": 1,
+						"y": 4,
+						"w": 192,
+						"h": 127
+					},
+					"frame": {
+						"x": 1,
+						"y": 418,
 						"w": 192,
 						"h": 127
 					}
 				},
 				{
-					"filename": "light-0.png",
+					"filename": "Right Arm - Heavy Shot/r-r-heavy-12.png",
 					"rotated": false,
 					"trimmed": true,
 					"sourceSize": {
@@ -39,20 +145,20 @@
 						"h": 146
 					},
 					"spriteSourceSize": {
-						"x": 7,
-						"y": 4,
-						"w": 186,
-						"h": 130
+						"x": 9,
+						"y": 5,
+						"w": 149,
+						"h": 137
 					},
 					"frame": {
-						"x": 1,
-						"y": 130,
-						"w": 186,
-						"h": 130
+						"x": 152,
+						"y": 279,
+						"w": 149,
+						"h": 137
 					}
 				},
 				{
-					"filename": "heavy-00.png",
+					"filename": "Right Arm - Idle/r-r-idle.png",
 					"rotated": false,
 					"trimmed": true,
 					"sourceSize": {
@@ -62,18 +168,522 @@
 					"spriteSourceSize": {
 						"x": 7,
 						"y": 4,
-						"w": 183,
-						"h": 132
+						"w": 192,
+						"h": 127
 					},
 					"frame": {
 						"x": 195,
+						"y": 418,
+						"w": 192,
+						"h": 127
+					}
+				},
+				{
+					"filename": "Right Arm - Heavy Shot/l-r-heavy-07.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 200,
+						"h": 146
+					},
+					"spriteSourceSize": {
+						"x": 28,
+						"y": 4,
+						"w": 164,
+						"h": 136
+					},
+					"frame": {
+						"x": 158,
 						"y": 1,
+						"w": 164,
+						"h": 136
+					}
+				},
+				{
+					"filename": "Right Arm - Heavy Shot/l-r-heavy-17.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 200,
+						"h": 146
+					},
+					"spriteSourceSize": {
+						"x": 28,
+						"y": 4,
+						"w": 164,
+						"h": 136
+					},
+					"frame": {
+						"x": 158,
+						"y": 1,
+						"w": 164,
+						"h": 136
+					}
+				},
+				{
+					"filename": "Right Arm - Heavy Shot/r-r-heavy-07.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 200,
+						"h": 146
+					},
+					"spriteSourceSize": {
+						"x": 8,
+						"y": 4,
+						"w": 164,
+						"h": 136
+					},
+					"frame": {
+						"x": 158,
+						"y": 139,
+						"w": 164,
+						"h": 136
+					}
+				},
+				{
+					"filename": "Right Arm - Heavy Shot/r-r-heavy-17.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 200,
+						"h": 146
+					},
+					"spriteSourceSize": {
+						"x": 8,
+						"y": 4,
+						"w": 164,
+						"h": 136
+					},
+					"frame": {
+						"x": 158,
+						"y": 139,
+						"w": 164,
+						"h": 136
+					}
+				},
+				{
+					"filename": "Right Arm - Heavy Shot/l-r-heavy-08.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 200,
+						"h": 146
+					},
+					"spriteSourceSize": {
+						"x": 30,
+						"y": 4,
+						"w": 161,
+						"h": 136
+					},
+					"frame": {
+						"x": 303,
+						"y": 277,
+						"w": 161,
+						"h": 136
+					}
+				},
+				{
+					"filename": "Right Arm - Heavy Shot/l-r-heavy-16.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 200,
+						"h": 146
+					},
+					"spriteSourceSize": {
+						"x": 30,
+						"y": 4,
+						"w": 161,
+						"h": 136
+					},
+					"frame": {
+						"x": 303,
+						"y": 277,
+						"w": 161,
+						"h": 136
+					}
+				},
+				{
+					"filename": "Right Arm - Light Shot/l-r-light-1.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 200,
+						"h": 146
+					},
+					"spriteSourceSize": {
+						"x": 10,
+						"y": 4,
+						"w": 182,
+						"h": 131
+					},
+					"frame": {
+						"x": 389,
+						"y": 415,
+						"w": 182,
+						"h": 131
+					}
+				},
+				{
+					"filename": "Right Arm - Light Shot/l-r-light-5.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 200,
+						"h": 146
+					},
+					"spriteSourceSize": {
+						"x": 10,
+						"y": 4,
+						"w": 182,
+						"h": 131
+					},
+					"frame": {
+						"x": 389,
+						"y": 415,
+						"w": 182,
+						"h": 131
+					}
+				},
+				{
+					"filename": "Right Arm - Heavy Shot/r-r-heavy-08.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 200,
+						"h": 146
+					},
+					"spriteSourceSize": {
+						"x": 9,
+						"y": 4,
+						"w": 161,
+						"h": 136
+					},
+					"frame": {
+						"x": 324,
+						"y": 1,
+						"w": 161,
+						"h": 136
+					}
+				},
+				{
+					"filename": "Right Arm - Heavy Shot/r-r-heavy-16.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 200,
+						"h": 146
+					},
+					"spriteSourceSize": {
+						"x": 9,
+						"y": 4,
+						"w": 161,
+						"h": 136
+					},
+					"frame": {
+						"x": 324,
+						"y": 1,
+						"w": 161,
+						"h": 136
+					}
+				},
+				{
+					"filename": "Right Arm - Heavy Shot/l-r-heavy-09.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 200,
+						"h": 146
+					},
+					"spriteSourceSize": {
+						"x": 33,
+						"y": 4,
+						"w": 158,
+						"h": 136
+					},
+					"frame": {
+						"x": 324,
+						"y": 139,
+						"w": 158,
+						"h": 136
+					}
+				},
+				{
+					"filename": "Right Arm - Heavy Shot/l-r-heavy-15.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 200,
+						"h": 146
+					},
+					"spriteSourceSize": {
+						"x": 33,
+						"y": 4,
+						"w": 158,
+						"h": 136
+					},
+					"frame": {
+						"x": 324,
+						"y": 139,
+						"w": 158,
+						"h": 136
+					}
+				},
+				{
+					"filename": "Right Arm - Heavy Shot/r-r-heavy-09.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 200,
+						"h": 146
+					},
+					"spriteSourceSize": {
+						"x": 9,
+						"y": 4,
+						"w": 158,
+						"h": 136
+					},
+					"frame": {
+						"x": 466,
+						"y": 277,
+						"w": 158,
+						"h": 136
+					}
+				},
+				{
+					"filename": "Right Arm - Heavy Shot/r-r-heavy-15.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 200,
+						"h": 146
+					},
+					"spriteSourceSize": {
+						"x": 9,
+						"y": 4,
+						"w": 158,
+						"h": 136
+					},
+					"frame": {
+						"x": 466,
+						"y": 277,
+						"w": 158,
+						"h": 136
+					}
+				},
+				{
+					"filename": "Right Arm - Light Shot/r-r-light-1.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 200,
+						"h": 146
+					},
+					"spriteSourceSize": {
+						"x": 8,
+						"y": 4,
+						"w": 182,
+						"h": 131
+					},
+					"frame": {
+						"x": 573,
+						"y": 415,
+						"w": 182,
+						"h": 131
+					}
+				},
+				{
+					"filename": "Right Arm - Light Shot/r-r-light-5.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 200,
+						"h": 146
+					},
+					"spriteSourceSize": {
+						"x": 8,
+						"y": 4,
+						"w": 182,
+						"h": 131
+					},
+					"frame": {
+						"x": 573,
+						"y": 415,
+						"w": 182,
+						"h": 131
+					}
+				},
+				{
+					"filename": "Right Arm - Heavy Shot/l-r-heavy-11.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 200,
+						"h": 146
+					},
+					"spriteSourceSize": {
+						"x": 39,
+						"y": 5,
+						"w": 152,
+						"h": 136
+					},
+					"frame": {
+						"x": 484,
+						"y": 139,
+						"w": 152,
+						"h": 136
+					}
+				},
+				{
+					"filename": "Right Arm - Heavy Shot/l-r-heavy-13.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 200,
+						"h": 146
+					},
+					"spriteSourceSize": {
+						"x": 39,
+						"y": 5,
+						"w": 152,
+						"h": 136
+					},
+					"frame": {
+						"x": 626,
+						"y": 277,
+						"w": 152,
+						"h": 136
+					}
+				},
+				{
+					"filename": "Right Arm - Heavy Shot/r-r-heavy-11.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 200,
+						"h": 146
+					},
+					"spriteSourceSize": {
+						"x": 9,
+						"y": 5,
+						"w": 152,
+						"h": 136
+					},
+					"frame": {
+						"x": 487,
+						"y": 1,
+						"w": 152,
+						"h": 136
+					}
+				},
+				{
+					"filename": "Right Arm - Heavy Shot/r-r-heavy-13.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 200,
+						"h": 146
+					},
+					"spriteSourceSize": {
+						"x": 9,
+						"y": 5,
+						"w": 152,
+						"h": 136
+					},
+					"frame": {
+						"x": 638,
+						"y": 139,
+						"w": 152,
+						"h": 136
+					}
+				},
+				{
+					"filename": "Right Arm - Light Shot/l-r-light-0.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 200,
+						"h": 146
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 4,
+						"w": 186,
+						"h": 130
+					},
+					"frame": {
+						"x": 757,
+						"y": 415,
+						"w": 186,
+						"h": 130
+					}
+				},
+				{
+					"filename": "Right Arm - Heavy Shot/l-r-heavy-05.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 200,
+						"h": 146
+					},
+					"spriteSourceSize": {
+						"x": 23,
+						"y": 4,
+						"w": 169,
+						"h": 135
+					},
+					"frame": {
+						"x": 780,
+						"y": 277,
+						"w": 169,
+						"h": 135
+					}
+				},
+				{
+					"filename": "Right Arm - Heavy Shot/l-r-heavy-19.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 200,
+						"h": 146
+					},
+					"spriteSourceSize": {
+						"x": 23,
+						"y": 4,
+						"w": 169,
+						"h": 135
+					},
+					"frame": {
+						"x": 780,
+						"y": 277,
+						"w": 169,
+						"h": 135
+					}
+				},
+				{
+					"filename": "Right Arm - Heavy Shot/l-r-heavy-00.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 200,
+						"h": 146
+					},
+					"spriteSourceSize": {
+						"x": 10,
+						"y": 4,
+						"w": 183,
+						"h": 132
+					},
+					"frame": {
+						"x": 945,
+						"y": 414,
 						"w": 183,
 						"h": 132
 					}
 				},
 				{
-					"filename": "light-1.png",
+					"filename": "Right Arm - Heavy Shot/r-r-heavy-05.png",
 					"rotated": false,
 					"trimmed": true,
 					"sourceSize": {
@@ -83,18 +693,18 @@
 					"spriteSourceSize": {
 						"x": 8,
 						"y": 4,
-						"w": 182,
-						"h": 131
+						"w": 169,
+						"h": 135
 					},
 					"frame": {
-						"x": 380,
+						"x": 641,
 						"y": 1,
-						"w": 182,
-						"h": 131
+						"w": 169,
+						"h": 135
 					}
 				},
 				{
-					"filename": "light-5.png",
+					"filename": "Right Arm - Heavy Shot/r-r-heavy-19.png",
 					"rotated": false,
 					"trimmed": true,
 					"sourceSize": {
@@ -104,18 +714,60 @@
 					"spriteSourceSize": {
 						"x": 8,
 						"y": 4,
-						"w": 182,
-						"h": 131
+						"w": 169,
+						"h": 135
 					},
 					"frame": {
-						"x": 380,
+						"x": 641,
 						"y": 1,
-						"w": 182,
-						"h": 131
+						"w": 169,
+						"h": 135
 					}
 				},
 				{
-					"filename": "heavy-01.png",
+					"filename": "Right Arm - Heavy Shot/l-r-heavy-06.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 200,
+						"h": 146
+					},
+					"spriteSourceSize": {
+						"x": 25,
+						"y": 4,
+						"w": 167,
+						"h": 135
+					},
+					"frame": {
+						"x": 792,
+						"y": 138,
+						"w": 167,
+						"h": 135
+					}
+				},
+				{
+					"filename": "Right Arm - Heavy Shot/l-r-heavy-18.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 200,
+						"h": 146
+					},
+					"spriteSourceSize": {
+						"x": 25,
+						"y": 4,
+						"w": 167,
+						"h": 135
+					},
+					"frame": {
+						"x": 812,
+						"y": 1,
+						"w": 167,
+						"h": 135
+					}
+				},
+				{
+					"filename": "Right Arm - Heavy Shot/r-r-heavy-06.png",
 					"rotated": false,
 					"trimmed": true,
 					"sourceSize": {
@@ -125,18 +777,18 @@
 					"spriteSourceSize": {
 						"x": 8,
 						"y": 4,
-						"w": 179,
-						"h": 132
+						"w": 167,
+						"h": 135
 					},
 					"frame": {
-						"x": 564,
-						"y": 1,
-						"w": 179,
-						"h": 132
+						"x": 951,
+						"y": 275,
+						"w": 167,
+						"h": 135
 					}
 				},
 				{
-					"filename": "heavy-23.png",
+					"filename": "Right Arm - Heavy Shot/r-r-heavy-18.png",
 					"rotated": false,
 					"trimmed": true,
 					"sourceSize": {
@@ -146,18 +798,18 @@
 					"spriteSourceSize": {
 						"x": 8,
 						"y": 4,
-						"w": 179,
-						"h": 132
+						"w": 167,
+						"h": 135
 					},
 					"frame": {
-						"x": 745,
-						"y": 1,
-						"w": 179,
-						"h": 132
+						"x": 961,
+						"y": 138,
+						"w": 167,
+						"h": 135
 					}
 				},
 				{
-					"filename": "light-2.png",
+					"filename": "Right Arm - Light Shot/l-r-light-3.png",
 					"rotated": false,
 					"trimmed": true,
 					"sourceSize": {
@@ -165,83 +817,20 @@
 						"h": 146
 					},
 					"spriteSourceSize": {
-						"x": 8,
+						"x": 17,
 						"y": 4,
-						"w": 178,
-						"h": 133
+						"w": 175,
+						"h": 134
 					},
 					"frame": {
-						"x": 926,
+						"x": 981,
 						"y": 1,
-						"w": 178,
-						"h": 133
+						"w": 175,
+						"h": 134
 					}
 				},
 				{
-					"filename": "light-4.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 200,
-						"h": 146
-					},
-					"spriteSourceSize": {
-						"x": 8,
-						"y": 4,
-						"w": 178,
-						"h": 133
-					},
-					"frame": {
-						"x": 926,
-						"y": 1,
-						"w": 178,
-						"h": 133
-					}
-				},
-				{
-					"filename": "heavy-02.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 200,
-						"h": 146
-					},
-					"spriteSourceSize": {
-						"x": 8,
-						"y": 4,
-						"w": 177,
-						"h": 133
-					},
-					"frame": {
-						"x": 1106,
-						"y": 1,
-						"w": 177,
-						"h": 133
-					}
-				},
-				{
-					"filename": "heavy-22.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 200,
-						"h": 146
-					},
-					"spriteSourceSize": {
-						"x": 8,
-						"y": 4,
-						"w": 177,
-						"h": 133
-					},
-					"frame": {
-						"x": 1106,
-						"y": 1,
-						"w": 177,
-						"h": 133
-					}
-				},
-				{
-					"filename": "light-3.png",
+					"filename": "Right Arm - Light Shot/r-r-light-3.png",
 					"rotated": false,
 					"trimmed": true,
 					"sourceSize": {
@@ -255,14 +844,56 @@
 						"h": 134
 					},
 					"frame": {
-						"x": 1285,
-						"y": 1,
+						"x": 1120,
+						"y": 275,
 						"w": 175,
 						"h": 134
 					}
 				},
 				{
-					"filename": "heavy-03.png",
+					"filename": "Right Arm - Heavy Shot/l-r-heavy-03.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 200,
+						"h": 146
+					},
+					"spriteSourceSize": {
+						"x": 18,
+						"y": 4,
+						"w": 174,
+						"h": 134
+					},
+					"frame": {
+						"x": 1130,
+						"y": 411,
+						"w": 174,
+						"h": 134
+					}
+				},
+				{
+					"filename": "Right Arm - Heavy Shot/l-r-heavy-21.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 200,
+						"h": 146
+					},
+					"spriteSourceSize": {
+						"x": 18,
+						"y": 4,
+						"w": 174,
+						"h": 134
+					},
+					"frame": {
+						"x": 1130,
+						"y": 137,
+						"w": 174,
+						"h": 134
+					}
+				},
+				{
+					"filename": "Right Arm - Heavy Shot/r-r-heavy-03.png",
 					"rotated": false,
 					"trimmed": true,
 					"sourceSize": {
@@ -276,14 +907,14 @@
 						"h": 134
 					},
 					"frame": {
-						"x": 1462,
+						"x": 1158,
 						"y": 1,
 						"w": 174,
 						"h": 134
 					}
 				},
 				{
-					"filename": "heavy-21.png",
+					"filename": "Right Arm - Heavy Shot/r-r-heavy-21.png",
 					"rotated": false,
 					"trimmed": true,
 					"sourceSize": {
@@ -297,14 +928,14 @@
 						"h": 134
 					},
 					"frame": {
-						"x": 1638,
-						"y": 1,
+						"x": 1297,
+						"y": 273,
 						"w": 174,
 						"h": 134
 					}
 				},
 				{
-					"filename": "heavy-04.png",
+					"filename": "Right Arm - Heavy Shot/l-r-heavy-04.png",
 					"rotated": false,
 					"trimmed": true,
 					"sourceSize": {
@@ -312,20 +943,41 @@
 						"h": 146
 					},
 					"spriteSourceSize": {
-						"x": 8,
+						"x": 20,
 						"y": 4,
 						"w": 172,
 						"h": 134
 					},
 					"frame": {
-						"x": 1814,
+						"x": 1306,
+						"y": 137,
+						"w": 172,
+						"h": 134
+					}
+				},
+				{
+					"filename": "Right Arm - Heavy Shot/l-r-heavy-20.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 200,
+						"h": 146
+					},
+					"spriteSourceSize": {
+						"x": 20,
+						"y": 4,
+						"w": 172,
+						"h": 134
+					},
+					"frame": {
+						"x": 1334,
 						"y": 1,
 						"w": 172,
 						"h": 134
 					}
 				},
 				{
-					"filename": "heavy-20.png",
+					"filename": "Right Arm - Heavy Shot/r-r-heavy-04.png",
 					"rotated": false,
 					"trimmed": true,
 					"sourceSize": {
@@ -339,14 +991,14 @@
 						"h": 134
 					},
 					"frame": {
-						"x": 189,
-						"y": 135,
+						"x": 1306,
+						"y": 409,
 						"w": 172,
 						"h": 134
 					}
 				},
 				{
-					"filename": "heavy-07.png",
+					"filename": "Right Arm - Heavy Shot/r-r-heavy-20.png",
 					"rotated": false,
 					"trimmed": true,
 					"sourceSize": {
@@ -356,18 +1008,60 @@
 					"spriteSourceSize": {
 						"x": 8,
 						"y": 4,
-						"w": 164,
-						"h": 136
+						"w": 172,
+						"h": 134
 					},
 					"frame": {
-						"x": 363,
-						"y": 137,
-						"w": 164,
-						"h": 136
+						"x": 1473,
+						"y": 273,
+						"w": 172,
+						"h": 134
 					}
 				},
 				{
-					"filename": "heavy-17.png",
+					"filename": "Right Arm - Light Shot/l-r-light-2.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 200,
+						"h": 146
+					},
+					"spriteSourceSize": {
+						"x": 14,
+						"y": 4,
+						"w": 178,
+						"h": 133
+					},
+					"frame": {
+						"x": 1480,
+						"y": 137,
+						"w": 178,
+						"h": 133
+					}
+				},
+				{
+					"filename": "Right Arm - Light Shot/l-r-light-4.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 200,
+						"h": 146
+					},
+					"spriteSourceSize": {
+						"x": 14,
+						"y": 4,
+						"w": 178,
+						"h": 133
+					},
+					"frame": {
+						"x": 1480,
+						"y": 137,
+						"w": 178,
+						"h": 133
+					}
+				},
+				{
+					"filename": "Right Arm - Light Shot/r-r-light-2.png",
 					"rotated": false,
 					"trimmed": true,
 					"sourceSize": {
@@ -377,60 +1071,18 @@
 					"spriteSourceSize": {
 						"x": 8,
 						"y": 4,
-						"w": 164,
-						"h": 136
+						"w": 178,
+						"h": 133
 					},
 					"frame": {
-						"x": 363,
-						"y": 137,
-						"w": 164,
-						"h": 136
+						"x": 1508,
+						"y": 1,
+						"w": 178,
+						"h": 133
 					}
 				},
 				{
-					"filename": "heavy-08.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 200,
-						"h": 146
-					},
-					"spriteSourceSize": {
-						"x": 9,
-						"y": 4,
-						"w": 161,
-						"h": 136
-					},
-					"frame": {
-						"x": 529,
-						"y": 137,
-						"w": 161,
-						"h": 136
-					}
-				},
-				{
-					"filename": "heavy-16.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 200,
-						"h": 146
-					},
-					"spriteSourceSize": {
-						"x": 9,
-						"y": 4,
-						"w": 161,
-						"h": 136
-					},
-					"frame": {
-						"x": 529,
-						"y": 137,
-						"w": 161,
-						"h": 136
-					}
-				},
-				{
-					"filename": "heavy-05.png",
+					"filename": "Right Arm - Light Shot/r-r-light-4.png",
 					"rotated": false,
 					"trimmed": true,
 					"sourceSize": {
@@ -440,18 +1092,165 @@
 					"spriteSourceSize": {
 						"x": 8,
 						"y": 4,
-						"w": 169,
-						"h": 135
+						"w": 178,
+						"h": 133
 					},
 					"frame": {
-						"x": 692,
+						"x": 1508,
+						"y": 1,
+						"w": 178,
+						"h": 133
+					}
+				},
+				{
+					"filename": "Right Arm - Heavy Shot/l-r-heavy-02.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 200,
+						"h": 146
+					},
+					"spriteSourceSize": {
+						"x": 15,
+						"y": 4,
+						"w": 177,
+						"h": 133
+					},
+					"frame": {
+						"x": 1480,
+						"y": 409,
+						"w": 177,
+						"h": 133
+					}
+				},
+				{
+					"filename": "Right Arm - Heavy Shot/l-r-heavy-22.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 200,
+						"h": 146
+					},
+					"spriteSourceSize": {
+						"x": 15,
+						"y": 4,
+						"w": 177,
+						"h": 133
+					},
+					"frame": {
+						"x": 1480,
+						"y": 409,
+						"w": 177,
+						"h": 133
+					}
+				},
+				{
+					"filename": "Right Arm - Heavy Shot/r-r-heavy-02.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 200,
+						"h": 146
+					},
+					"spriteSourceSize": {
+						"x": 8,
+						"y": 4,
+						"w": 177,
+						"h": 133
+					},
+					"frame": {
+						"x": 1647,
+						"y": 272,
+						"w": 177,
+						"h": 133
+					}
+				},
+				{
+					"filename": "Right Arm - Heavy Shot/r-r-heavy-22.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 200,
+						"h": 146
+					},
+					"spriteSourceSize": {
+						"x": 8,
+						"y": 4,
+						"w": 177,
+						"h": 133
+					},
+					"frame": {
+						"x": 1647,
+						"y": 272,
+						"w": 177,
+						"h": 133
+					}
+				},
+				{
+					"filename": "Right Arm - Heavy Shot/r-r-heavy-00.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 200,
+						"h": 146
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 4,
+						"w": 183,
+						"h": 132
+					},
+					"frame": {
+						"x": 1660,
+						"y": 136,
+						"w": 183,
+						"h": 132
+					}
+				},
+				{
+					"filename": "Right Arm - Heavy Shot/l-r-heavy-01.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 200,
+						"h": 146
+					},
+					"spriteSourceSize": {
+						"x": 13,
+						"y": 4,
+						"w": 179,
+						"h": 132
+					},
+					"frame": {
+						"x": 1688,
+						"y": 1,
+						"w": 179,
+						"h": 132
+					}
+				},
+				{
+					"filename": "Right Arm - Heavy Shot/l-r-heavy-23.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 200,
+						"h": 146
+					},
+					"spriteSourceSize": {
+						"x": 13,
+						"y": 4,
+						"w": 179,
+						"h": 132
+					},
+					"frame": {
+						"x": 1845,
 						"y": 135,
-						"w": 169,
-						"h": 135
+						"w": 179,
+						"h": 132
 					}
 				},
 				{
-					"filename": "heavy-19.png",
+					"filename": "Right Arm - Heavy Shot/r-r-heavy-01.png",
 					"rotated": false,
 					"trimmed": true,
 					"sourceSize": {
@@ -461,165 +1260,18 @@
 					"spriteSourceSize": {
 						"x": 8,
 						"y": 4,
-						"w": 169,
-						"h": 135
+						"w": 179,
+						"h": 132
 					},
 					"frame": {
-						"x": 692,
-						"y": 135,
-						"w": 169,
-						"h": 135
+						"x": 1845,
+						"y": 269,
+						"w": 179,
+						"h": 132
 					}
 				},
 				{
-					"filename": "heavy-10.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 200,
-						"h": 146
-					},
-					"spriteSourceSize": {
-						"x": 9,
-						"y": 4,
-						"w": 155,
-						"h": 137
-					},
-					"frame": {
-						"x": 863,
-						"y": 136,
-						"w": 155,
-						"h": 137
-					}
-				},
-				{
-					"filename": "heavy-14.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 200,
-						"h": 146
-					},
-					"spriteSourceSize": {
-						"x": 9,
-						"y": 4,
-						"w": 155,
-						"h": 137
-					},
-					"frame": {
-						"x": 863,
-						"y": 136,
-						"w": 155,
-						"h": 137
-					}
-				},
-				{
-					"filename": "heavy-12.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 200,
-						"h": 146
-					},
-					"spriteSourceSize": {
-						"x": 9,
-						"y": 5,
-						"w": 149,
-						"h": 137
-					},
-					"frame": {
-						"x": 1020,
-						"y": 136,
-						"w": 149,
-						"h": 137
-					}
-				},
-				{
-					"filename": "heavy-09.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 200,
-						"h": 146
-					},
-					"spriteSourceSize": {
-						"x": 9,
-						"y": 4,
-						"w": 158,
-						"h": 136
-					},
-					"frame": {
-						"x": 1171,
-						"y": 137,
-						"w": 158,
-						"h": 136
-					}
-				},
-				{
-					"filename": "heavy-15.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 200,
-						"h": 146
-					},
-					"spriteSourceSize": {
-						"x": 9,
-						"y": 4,
-						"w": 158,
-						"h": 136
-					},
-					"frame": {
-						"x": 1171,
-						"y": 137,
-						"w": 158,
-						"h": 136
-					}
-				},
-				{
-					"filename": "heavy-11.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 200,
-						"h": 146
-					},
-					"spriteSourceSize": {
-						"x": 9,
-						"y": 5,
-						"w": 152,
-						"h": 136
-					},
-					"frame": {
-						"x": 1331,
-						"y": 137,
-						"w": 152,
-						"h": 136
-					}
-				},
-				{
-					"filename": "heavy-13.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 200,
-						"h": 146
-					},
-					"spriteSourceSize": {
-						"x": 9,
-						"y": 5,
-						"w": 152,
-						"h": 136
-					},
-					"frame": {
-						"x": 1485,
-						"y": 137,
-						"w": 152,
-						"h": 136
-					}
-				},
-				{
-					"filename": "heavy-06.png",
+					"filename": "Right Arm - Heavy Shot/r-r-heavy-23.png",
 					"rotated": false,
 					"trimmed": true,
 					"sourceSize": {
@@ -629,18 +1281,18 @@
 					"spriteSourceSize": {
 						"x": 8,
 						"y": 4,
-						"w": 167,
-						"h": 135
+						"w": 179,
+						"h": 132
 					},
 					"frame": {
-						"x": 1639,
-						"y": 137,
-						"w": 167,
-						"h": 135
+						"x": 1659,
+						"y": 407,
+						"w": 179,
+						"h": 132
 					}
 				},
 				{
-					"filename": "heavy-18.png",
+					"filename": "Right Arm - Light Shot/r-r-light-0.png",
 					"rotated": false,
 					"trimmed": true,
 					"sourceSize": {
@@ -648,16 +1300,16 @@
 						"h": 146
 					},
 					"spriteSourceSize": {
-						"x": 8,
+						"x": 7,
 						"y": 4,
-						"w": 167,
-						"h": 135
+						"w": 186,
+						"h": 130
 					},
 					"frame": {
-						"x": 1808,
-						"y": 137,
-						"w": 167,
-						"h": 135
+						"x": 1840,
+						"y": 403,
+						"w": 186,
+						"h": 130
 					}
 				}
 			]
@@ -666,6 +1318,6 @@
 	"meta": {
 		"app": "https://www.codeandweb.com/texturepacker",
 		"version": "3.0",
-		"smartupdate": "$TexturePacker:SmartUpdate:0e24bf2c4c11e87d004756fa57e7d99c:853437908dd708fdbdb23ceea51c6aa0:feef0ff99322f7509b0b12949fc8a661$"
+		"smartupdate": "$TexturePacker:SmartUpdate:641b2be8c4760cb8e94aa8863955c502:547b122baecbee3b37c5f6b078d18a43:6107280ceefbdc5c114738db331db2b4$"
 	}
 }

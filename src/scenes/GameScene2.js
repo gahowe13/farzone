@@ -11,6 +11,7 @@ import OswaldPeer from '../sprites/OswaldPeer';
 import OswaldGrendade from '../sprites/OswaldGrenade';
 import PF from 'pathfinding';
 import {network} from '../network';
+import Montserrat from '../sprites/Montserrat';
 
 const { Grid } = PF;
 
@@ -82,13 +83,16 @@ class GameScene2 extends Scene {
       if (this.registry.isMultiplayerHost) {
         // Make player 1 a controllable sprite
         if (this.p1Key === 'roboto') {
-          this.cat = new Roboto(this, 0, 0, 'p1');
+          this.cat = new Roboto(this, 0, 0);
         }
         else if (this.p1Key === 'arial') {
-          this.cat = new Arial(this, 0, 0, 'p1');
+          this.cat = new Arial(this, 0, 0);
         }
         else if (this.p1Key === 'oswald') {
-          this.cat = new Oswald(this, 0, 0, 'p1');
+          this.cat = new Oswald(this, 0, 0);
+        }
+        else if (this.p1Key === 'montserrat') {
+          this.cat = new Montserrat(this, 0, 0);
         }
 
         // Make player 2 a peer sprite sprite
@@ -117,26 +121,32 @@ class GameScene2 extends Scene {
 
         // Make player 2 a controllable sprite
         if (this.p2Key === 'roboto') {
-          this.dummy = new Roboto(this, 0, 0, 'p2');
+          this.dummy = new Roboto(this, 0, 0);
         }
         else if (this.p2Key === 'arial') {
-          this.dummy = new Arial(this, 0, 0, 'p2');
+          this.dummy = new Arial(this, 0, 0);
         }
         else if (this.p2Key === 'oswald') {
-          this.dummy = new Oswald(this, 0, 0, 'p2');
+          this.dummy = new Oswald(this, 0, 0);
+        }
+        else if (this.p2Key === 'montserrat') {
+          this.dummy = new Montserrat(this, 0, 0);
         }
       }
     }
     // Otherwise, single player against a CPU...
     else {
       if (this.p1Key === 'roboto') {
-        this.cat = new Roboto(this, 0, 0, 'p1');
+        this.cat = new Roboto(this, 0, 0);
       }
       else if (this.p1Key === 'arial') {
-        this.cat = new Arial(this, 0, 0, 'p1');
+        this.cat = new Arial(this, 0, 0);
       }
       else if (this.p1Key === 'oswald') {
-        this.cat = new Oswald(this, 0, 0, 'p1');
+        this.cat = new Oswald(this, 0, 0);
+      }
+      else if (this.p1Key === 'montserrat') {
+        this.cat = new Montserrat(this, 0, 0);
       }
       
       if (this.p2Key === 'roboto') {
@@ -172,6 +182,24 @@ class GameScene2 extends Scene {
         this.dummy.setPosition(x, y);
       }
     });
+
+    // Lighting
+    this.lights.enable();
+    this.lights.setAmbientColor(0x555555);
+    this.cat.initLighting();
+    this.dummy.initLighting();
+    this.ground.setPipeline('Light2D');
+    this.bgd1.setPipeline('Light2D');
+    this.bgd2.setPipeline('Light2D');
+    this.bgd3.setPipeline('Light2D');
+    this.leaves.setPipeline('Light2D');
+    this.leavesBG1.setPipeline('Light2D');
+    this.leavesBG2.setPipeline('Light2D');
+    // this.para1.setPipeline('Light2D');
+    // this.para2.setPipeline('Light2D');
+
+    const sunRadius = Math.max(this.tilemap.widthInPixels, this.tilemap.heightInPixels);
+    this.sun = this.lights.addLight(this.tilemap.widthInPixels / 2, 0, sunRadius);
 
     // Physics colliders
     this.physics.world.TILE_BIAS = 175;
@@ -410,6 +438,10 @@ class GameScene2 extends Scene {
       this.registry.playerMaxHP = 850;
       this.registry.playerHP = this.registry.playerMaxHP;
     }
+    else if (this.p1Key === 'montserrat') {
+      this.registry.playerMaxHP = 800;
+      this.registry.playerHP = this.registry.playerMaxHP;
+    }
 
     this.registry.p1Key = this.p1Key;
     this.registry.playerTotalAttacks = 0;
@@ -434,9 +466,13 @@ class GameScene2 extends Scene {
       this.registry.enemyMaxHP = 850;
       this.registry.enemyHP = this.registry.enemyMaxHP;
     }
+    else if (this.p2Key === 'montserrat') {
+      this.registry.enemyMaxHP = 800;
+      this.registry.enemyHP = this.registry.enemyMaxHP;
+    }
 
     // Music
-    this.bgm = this.sound.add('ost-level1d', { loop: true });
+    this.bgm = this.sound.add('ost-battle1', { loop: true });
 
     this.sound.add('mitch-go').once('complete', () => this.bgm.play()).play();
 
@@ -447,12 +483,13 @@ class GameScene2 extends Scene {
     this.camZoomLerp = 0.05;
 
     if (this.bgColor === null) {
-      this.cameras.main.setBackgroundColor(0x5555FF);
+      this.cameras.main.setBackgroundColor(0x3333CC);
     }
     else {
       this.cameras.main.setBackgroundColor(this.bgColor);
     }
     this.cameras.main.setZoom(this.camZoomMin);
+    // this.cameras.main.setZoom(0.86);
     // this.cameras.main.setBounds(0, 0, this.tilemap.widthInPixels, this.tilemap.heightInPixels);
     
     this.cameraMid = new pMath.Vector2();
@@ -1313,7 +1350,7 @@ class GameScene2 extends Scene {
 
     this.leavesBG1.setPosition(
       this.leavesBG1Pos.x + leaves1Offset.x,
-      this.leavesBG2Pos.y + leaves1Offset.y
+      this.leavesBG1Pos.y + leaves1Offset.y
     );
     this.leavesBG2.setPosition(
       this.leavesBG2Pos.x + leaves2Offset.x,

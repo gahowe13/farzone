@@ -1,16 +1,17 @@
 import { GameObjects, Math as pMath } from "phaser";
 const { Container } = GameObjects;
 
-export default class Character extends Container {
+export default class ControllableCharacter extends Container {
   constructor(
     scene,
     x,
     y,
     [],
+    animName,
     speed,
     jumpForce,
-    jumpAnimBuffer = 50,
-    jumpAnimLock = false,
+    jumpAnimBuffer,
+    jumpAnimLock,
     isDead = false
   ) {
     super(scene, x, y, []);
@@ -20,7 +21,7 @@ export default class Character extends Container {
     this.jumpForce = jumpForce;
     this.jumpAnimBuffer = jumpAnimBuffer;
     this.jumpAnimLock = jumpAnimLock;
-    this.isDead = this.isDead;
+    this.isDead = isDead;
 
     this.cursors = this.scene.input.keyboard.addKeys({
       up: Phaser.Input.Keyboard.KeyCodes.W,

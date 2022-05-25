@@ -1,7 +1,7 @@
 import { GameObjects, Math as pMath } from "phaser";
 const { Container } = GameObjects;
 
-export default class ControllableCharacter extends Container {
+export default class Character extends Container {
   constructor(
     scene,
     x,
@@ -59,7 +59,6 @@ export default class ControllableCharacter extends Container {
 
     this.body.setSize(140, 320);
     this.body.setOffset(-70, -200);
-    this.isKnocked = false;
 
     this.bulletGfx = this.scene.add.graphics();
     this.bulletGfx.setDepth(10);
@@ -70,13 +69,6 @@ export default class ControllableCharacter extends Container {
 
     // Muzzle flare lighting
     this.muzzleFlare = this.scene.lights.addLight(0, 0, 500, 0xffff00, 0);
-
-    this.cursors = this.scene.input.keyboard.addKeys({
-      up: Phaser.Input.Keyboard.KeyCodes.W,
-      down: Phaser.Input.Keyboard.KeyCodes.S,
-      left: Phaser.Input.Keyboard.KeyCodes.A,
-      right: Phaser.Input.Keyboard.KeyCodes.D,
-    });
 
     // For tracking distance stat:
     this.prevX = this.x;
@@ -91,8 +83,6 @@ export default class ControllableCharacter extends Container {
   }
 
   update(time, delta) {
-    const { left, right, up } = this.cursors;
-    const { mousePointer } = this.scene.input;
     const { animName } = this;
 
     // Distance tracking...
@@ -119,22 +109,6 @@ export default class ControllableCharacter extends Container {
       return;
     }
 
-    if (!this.isKnocked) {
-      if (left.isDown) {
-        this.body.setVelocityX(-this.speed);
-      } else if (right.isDown) {
-        this.body.setVelocityX(this.speed);
-      } else {
-        this.body.setVelocityX(0);
-      }
-    } else if (!this.body.blocked.none) {
-      this.isKnocked = false;
-    }
-
-    if (up.isDown && this.body.onFloor()) {
-      this.body.setVelocityY(-this.jumpForce);
-    }
-
     // Aim controls
     const { zoom, worldView } = this.scene.cameras.main;
     const relX = (this.x - worldView.x) * zoom;
@@ -149,24 +123,6 @@ export default class ControllableCharacter extends Container {
 
     let angleMod = 2 * Math.PI;
     let headAngleMod = 0.35;
-
-    if (mousePointer.x <= relX) {
-      this.setFlipX(true);
-      this.armLeft.setOrigin(1 - 0.19, 0.29);
-      this.armRight.setOrigin(1 - 0.21, 0.28);
-      this.armLeft.setX(20);
-      this.armRight.setX(20);
-      this.head.setX(12);
-      angleMod = Math.PI;
-      headAngleMod = 0.35;
-    } else {
-      this.setFlipX(false);
-      this.armLeft.setOrigin(0.19, 0.29);
-      this.armRight.setOrigin(0.21, 0.28);
-      this.armLeft.setX(-20);
-      this.armRight.setX(-20);
-      this.head.setX(-12);
-    }
 
     this.armLeft.setRotation(this.aimAngle + angleMod);
     this.armRight.setRotation(this.aimAngle + angleMod);

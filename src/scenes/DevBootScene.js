@@ -1,3 +1,10 @@
+// this.scene.start("scene-game", {
+//   levelKey: this.levelKey,
+//   bgColor: this.bgColor,
+//   p1Key: this.p1Key,
+//   p2Key: this.p2Key,
+// });
+
 import { Scene, GameObjects } from "phaser";
 const { Rectangle } = GameObjects;
 
@@ -56,41 +63,6 @@ class BootScene extends Scene {
     this.load.image("hume1-shield-arm-block", [
       "assets/sprites/hume1-shield-arm-block.png",
       "assets/sprites/hume1-shield-arm-block_n.png",
-    ]);
-
-    // Oswald
-    this.load.multiatlas(
-      "oswald",
-      "assets/sprites/oswald.json",
-      "assets/sprites"
-    );
-    this.load.image("oswald-head", [
-      "assets/sprites/oswald-head.png",
-      "assets/sprites/oswald-head_n.png",
-    ]);
-    this.load.image("oswald-arm-l", [
-      "assets/sprites/oswald-arm-l.png",
-      "assets/sprites/oswald-arm-l_n.png",
-    ]);
-    this.load.image("oswald-arm-r", [
-      "assets/sprites/oswald-arm-r.png",
-      "assets/sprites/oswald-arm-r_n.png",
-    ]);
-    this.load.image("oswald-grenade", "assets/sprites/grenade.png");
-
-    // Montserrat
-    this.load.multiatlas(
-      "montserrat",
-      "assets/sprites/montserrat.json",
-      "assets/sprites"
-    );
-    this.load.image("r-montserrat-head", [
-      "assets/sprites/r-montserrat-head.png",
-      "assets/sprites/r-montserrat-head_n.png",
-    ]);
-    this.load.image("l-montserrat-head", [
-      "assets/sprites/l-montserrat-head.png",
-      "assets/sprites/l-montserrat-head_n.png",
     ]);
 
     // Maps 2.0
@@ -632,127 +604,6 @@ class BootScene extends Scene {
       repeat: 0,
     });
 
-    // Oswald animations
-    this.anims.create({
-      key: "oswald-idle",
-      frames: this.anims.generateFrameNames("oswald", {
-        start: 0,
-        end: 59,
-        prefix: "idle-",
-        suffix: ".png",
-        zeroPad: 2,
-      }),
-      frameRate: 60,
-      repeat: -1,
-    });
-
-    this.anims.create({
-      key: "oswald-run-forwards",
-      frames: this.anims.generateFrameNames("oswald", {
-        start: 0,
-        end: 59,
-        prefix: "run-forwards-",
-        suffix: ".png",
-        zeroPad: 2,
-      }),
-      frameRate: 60,
-      repeat: -1,
-    });
-
-    this.anims.create({
-      key: "oswald-run-backwards",
-      frames: this.anims.generateFrameNames("oswald", {
-        start: 0,
-        end: 59,
-        prefix: "run-backwards-",
-        suffix: ".png",
-        zeroPad: 2,
-      }),
-      frameRate: 60,
-      repeat: -1,
-    });
-
-    this.anims.create({
-      key: "oswald-aim",
-      frames: [{ key: "oswald", frame: "aim.png" }],
-      frameRate: 0,
-      repeat: 0,
-    });
-
-    this.anims.create({
-      key: "oswald-up",
-      frames: [{ key: "oswald", frame: "up.png" }],
-      frameRate: 0,
-      repeat: 0,
-    });
-
-    this.anims.create({
-      key: "oswald-down",
-      frames: [{ key: "oswald", frame: "down.png" }],
-      frameRate: 0,
-      repeat: 0,
-    });
-
-    this.anims.create({
-      key: "oswald-down-aim",
-      frames: [{ key: "oswald", frame: "down-aim.png" }],
-      frameRate: 0,
-      repeat: 0,
-    });
-
-    this.anims.create({
-      key: "oswald-throw",
-      frames: this.anims.generateFrameNames("oswald", {
-        start: 0,
-        end: 9,
-        prefix: "throw-",
-        suffix: ".png",
-        zeroPad: 0,
-      }),
-      frameRate: 60,
-      repeat: 0,
-    });
-
-    this.anims.create({
-      key: "oswald-down-throw",
-      frames: this.anims.generateFrameNames("oswald", {
-        start: 0,
-        end: 9,
-        prefix: "down-throw-",
-        suffix: ".png",
-        zeroPad: 0,
-      }),
-      frameRate: 60,
-      repeat: 0,
-    });
-
-    // Montserrat animations
-    this.anims.create({
-      key: "r-montserrat-idle",
-      frames: this.anims.generateFrameNames("montserrat", {
-        start: 0,
-        end: 29,
-        prefix: "montserrat - Idle/r-idle-",
-        suffix: ".png",
-        zeroPad: 2,
-      }),
-      frameRate: 60,
-      repeat: -1,
-    });
-
-    this.anims.create({
-      key: "l-montserrat-idle",
-      frames: this.anims.generateFrameNames("montserrat", {
-        start: 0,
-        end: 29,
-        prefix: "montserrat - Idle/l-idle-",
-        suffix: ".png",
-        zeroPad: 2,
-      }),
-      frameRate: 60,
-      repeat: -1,
-    });
-
     this.input.mouse.disableContextMenu();
 
     this.fadeGfx = this.add.graphics();
@@ -772,9 +623,13 @@ class BootScene extends Scene {
         duration: 250,
         repeat: 0,
         onComplete: () => {
-          this.scene.start("scene-menu");
+          //   this.scene.start("scene-menu");
 
-          // this.scene.start('scene-game', { levelKey: 'map1', p1Key: 'arial', p2Key: 'arial' });
+          this.scene.start("scene-game", {
+            levelKey: "map1",
+            p1Key: "roboto",
+            p2Key: "arial",
+          });
 
           // this.registry.p1Key = 'oswald';
           // this.registry.p2Key = 'roboto';

@@ -1,54 +1,51 @@
-import './main.css';
-import Phaser, {Game} from 'phaser';
-import PhaserRaycaster from 'phaser-raycaster/dist/phaser-raycaster';
-import BootScene from './scenes/BootScene';
-import MenuScene from './scenes/MenuScene';
-import GameScene2 from './scenes/GameScene2';
-import GameOverScene from './scenes/GameOverScene';
+import "./main.css";
+import Phaser, { Game } from "phaser";
+import PhaserRaycaster from "phaser-raycaster/dist/phaser-raycaster";
+// import BootScene from "./scenes/BootScene";
+import BootScene from "./scenes/DevBootScene";
+import MenuScene from "./scenes/MenuScene";
+import GameScene2 from "./scenes/GameScene2";
+import GameOverScene from "./scenes/GameOverScene";
 
 // UI
-import BattleHUD from './scenes/BattleHUD';
+import BattleHUD from "./scenes/BattleHUD";
 
 // Render pipelines
 import HueRotatePipeline from "./pipelines/HueRotate";
 
-const canvas = document.getElementById('game-canvas');
+const canvas = document.getElementById("game-canvas");
 const config = {
   type: Phaser.WEBGL,
+  fps: {
+    target: 10,
+  },
   scale: {
     mode: Phaser.Scale.NONE,
-    parent: 'game',
+    parent: "game",
     width: window.innerWidth,
-    height: window.innerHeight
+    height: window.innerHeight,
   },
   dom: {
-    createContainer: true
+    createContainer: true,
   },
   pixelArt: true,
   physics: {
-    default: 'arcade',
+    default: "arcade",
     arcade: {
       gravity: { y: 600 },
-      debug: false
-    }
+      debug: false,
+    },
   },
   plugins: {
     scene: [
       {
-        key: 'PhaserRaycaster',
+        key: "PhaserRaycaster",
         plugin: PhaserRaycaster,
-        mapping: 'raycasterPlugin'
-      }
-    ]
+        mapping: "raycasterPlugin",
+      },
+    ],
   },
-  scene: [
-    BootScene,
-    MenuScene,
-    GameScene2,
-    GameOverScene,
-
-    BattleHUD
-  ],
+  scene: [BootScene, MenuScene, GameScene2, GameOverScene, BattleHUD],
   // pipeline: {
   //   'HueRotate': HueRotatePipeline
   // }
@@ -56,8 +53,10 @@ const config = {
 
 const game = new Game(config);
 
-window.addEventListener('resize', function (event) {
-
-  game.scale.resize(window.innerWidth, window.innerHeight);
-
-}, false);
+window.addEventListener(
+  "resize",
+  function (event) {
+    game.scale.resize(window.innerWidth, window.innerHeight);
+  },
+  false
+);

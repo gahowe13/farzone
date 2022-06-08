@@ -111,6 +111,7 @@ export default class Character extends Container {
 
     // Aim controls
     const { zoom, worldView } = this.scene.cameras.main;
+    const { mousePointer } = this.scene.input;
     const relX = (this.x - worldView.x) * zoom;
     const relY = (this.y - worldView.y) * zoom;
 

@@ -32,9 +32,9 @@ export default class ControllableCharacter extends Character {
   }
 
   update(time, delta) {
+    super.update(time, delta);
     const { left, right, up } = this.cursors;
     const { mousePointer } = this.scene.input;
-    const { animName } = this;
 
     // Distance tracking...
     const xDiff = Math.abs(this.x - this.prevX);
